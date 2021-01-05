@@ -21,7 +21,9 @@
           <dt>Quantity</dt>
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
-          <dd><%= @product.price %></dd>
+          <dd>  <aside class="price">
+          <%= humanized_money_with_symbol @product.price %>
+        </aside></dd>
         </dl>
       </div>
     </div>
