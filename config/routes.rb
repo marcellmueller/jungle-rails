@@ -10,9 +10,9 @@ Rails.application.routes.draw do
     post   :remove_item
   end
 
-  resources :empty do
-      get 'empty' => 'empty', as: :empty
-  end
+  resources :empty, only: [:index]
+
+  resources :about, only: [:index]
 
   resources :orders, only: [:create, :show]
 
