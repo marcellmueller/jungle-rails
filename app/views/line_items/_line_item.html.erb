@@ -8,7 +8,12 @@
   </td>
   <td>
   <aside class="price">
+  <% if active_sale? %>
+  <strike><%= humanized_money_with_symbol line_item.product.price %></strike>
+  <span class="text-danger"> <%= humanized_money_with_symbol (line_item.product.price * current_sale[0].percent_off / 100)%></span>
+<% else %>
   <%= humanized_money_with_symbol line_item.product.price %>
+<% end %>
 </aside>
 
   </td>
@@ -16,6 +21,11 @@
     <%= line_item.quantity %>
   </td>
   <td>
-    <%= humanized_money_with_symbol line_item.product.price * line_item.quantity %>
-  </td>
+    <% if active_sale? %>
+  <strike><%= humanized_money_with_symbol line_item.product.price  * line_item.quantity%></strike>
+  <span class="text-danger"> <%= humanized_money_with_symbol (line_item.product.price * current_sale[0].percent_off / 100  * line_item.quantity)%></span>
+<% else %>
+  <%= humanized_money_with_symbol line_item.product.price  * line_item.quantity %>
+<% end %>
+    </td>
 </tr>

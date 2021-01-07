@@ -9,8 +9,13 @@
   </td>
   <td>
   <aside class="price">
+  <% if active_sale? %>
+  <strike><%= humanized_money_with_symbol product.price %></strike>
+  <span class="text-danger"> <%= humanized_money_with_symbol (product.price * current_sale[0].percent_off / 100)%></span>
+<% else %>
   <%= humanized_money_with_symbol product.price %>
-</aside>
+<% end %>
+  </aside>
 
   </td>
   <td>
@@ -19,6 +24,11 @@
     <%= button_to add_item_cart_path(product_id: product.id), class: 'btn btn-xs btn-success' do %> + <% end %>
   </td>
   <td>
-    <%= product.price * quantity %>
-  </td>
+  <% if active_sale? %>
+  <strike><%= humanized_money_with_symbol product.price %></strike>
+  <span class="text-danger"> <%= humanized_money_with_symbol (product.price * current_sale[0].percent_off / 100)%></span>
+<% else %>
+  <%= humanized_money_with_symbol product.price %>
+<% end %>
+    </td>
 </tr>
