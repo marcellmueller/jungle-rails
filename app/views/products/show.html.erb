@@ -22,13 +22,16 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd>  <aside class="price">
+
+          <%# Price formatting if sale exists, needs to be DRY'd up %>
           <% if active_sale? %>
             <strike><%= humanized_money_with_symbol @product.price %></strike>
-            <span class="text-danger"> <%= humanized_money_with_symbol (@product.price * current_sale[0].percent_off / 100)%></span>
+            <span class="text-danger"> <%= humanized_money_with_symbol (@product.price - (@product.price * current_sale[0].percent_off / 100))%></span>
           <% else %>
             <%= humanized_money_with_symbol @product.price %>
           <% end %>
-            
+          <%# -------------------------------------------------------%>
+
         </aside></dd>
         </dl>
       </div>
