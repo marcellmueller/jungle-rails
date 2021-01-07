@@ -132,5 +132,46 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+Sale.create!({
+  name: 'Christmas Sale!',
+  percent_off: 25,
+  starts_on: '2020-12-15',
+  ends_on: '2020-12-24'
+})
+
+Sale.create!({
+  name: 'Boxing Day Sale!',
+  percent_off: 30,
+  starts_on: '2020-12-26',
+  ends_on: '2020-12-30'
+})
+
+Sale.create!({
+  name: 'Halloween Sale!',
+  percent_off: 25,
+  starts_on: '2020-10-15',
+  ends_on: '2020-10-31'
+})
+
+Sale.create!({
+  name: 'New Years Sale!',
+  percent_off: 25,
+  starts_on: '2020-12-31',
+  ends_on: '2021-01-15'
+})
+
+Sale.create!({
+  name: 'January Sale!',
+  percent_off: 20,
+  starts_on: '2021-01-15',
+  ends_on: '2021-01-31'
+})
+
+Sale.create!({
+  name: 'Easter Sale!',
+  percent_off: 20,
+  starts_on: '2021-04-01',
+  ends_on: '2021-04-15'
+})
 
 puts "DONE!"
