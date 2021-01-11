@@ -4,11 +4,13 @@ RSpec.describe Product, type: :model do
 
   describe 'Validations' do
 
+    before(:each) do
+      @category = Category.create(name: 'foo')
+      @product = Product.new(name: 'bar', price_cents: 10, quantity: 10, category_id: @category.id)
+    end
+
     describe "name" do
-    
       it "Should create new product" do
-        @category = Category.create(name: 'foo')
-        @product = Product.new(name: 'bar', price_cents: 10, quantity: 10, category_id: @category.id)
         expect(@product.valid?).to equal(true)
         @product.valid?
         expect(@product.errors.full_messages).to include()
@@ -16,16 +18,13 @@ RSpec.describe Product, type: :model do
       end
 
       it "Should respond with error if name is null" do
-        @category = Category.create(name: 'foo')
-        @product = Product.new(name: nil, price_cents: 10, quantity: 10, category_id: @category.id)  
-        @product.valid?
+       @product.name = nil
+       @product.valid?
         expect(@product.errors.full_messages).to include("Name can't be blank"
         )
       end
 
       it "Should respond with error if price is null" do
-        @category = Category.create(name: 'foo')
-        @product = Product.new(name: 'bar', price_cents: nil, quantity: 10, category_id: @category.id)
         @product.price_cents = nil
          @product.valid?
          expect(@product.errors.full_messages).to include("Price cents is not a number"
@@ -33,16 +32,12 @@ RSpec.describe Product, type: :model do
        end
 
        it "Should respond with error if quantity is null" do
-        @category = Category.create(name: 'foo')
-        @product = Product.new(name: 'bar', price_cents: 10, quantity: nil, category_id: @category.id)
         @product.quantity = nil
         @product.valid?
          expect(@product.errors.full_messages).to include("Quantity can't be blank")
        end
 
        it "Should respond with error if name is null" do
-        @category = Category.create(name: 'foo')
-        @product = Product.new(name: 'bar', price_cents: 10, quantity: 10, category_id: nil)
         @product.category_id = nil
         @product.valid?
         expect(@product.errors.full_messages).to include("Category can't be blank")
