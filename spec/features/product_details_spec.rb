@@ -21,11 +21,12 @@ RSpec.feature "Visitor navigates to Product Details", type: :feature, js: true d
   scenario "They see all products" do
     # ACT
     visit root_path
-    click_link('Details', match: :first) 
-    # DEBUG
-    save_screenshot
+    click_link("Details »", match: :first)
+        # DEBUG
 
     # VERIFY
     expect(page).to have_css '.product-detail'
-    end
+    save_screenshot
+
+  end
 end
