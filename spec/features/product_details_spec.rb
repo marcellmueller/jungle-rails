@@ -26,7 +26,7 @@ RSpec.feature "Visitor navigates to Product Details", type: :feature, js: true d
 
     # VERIFY
     expect(page).to have_css '.product-detail'
-    save_screenshot
+    # save_screenshot
 
   end
 end
