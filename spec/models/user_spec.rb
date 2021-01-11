@@ -9,7 +9,6 @@ RSpec.describe User, type: :model do
     end
 
     it "Should create new user" do
-      expect(@user.valid?).to equal(true)
       @user.valid?
       expect(@user.errors.full_messages).to include()
     end
