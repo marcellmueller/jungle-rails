@@ -27,7 +27,7 @@ RSpec.describe User, type: :model do
     end
 
     it "Password length must be at least 6 chars" do
-      user = User.create(name: 'foo', email: 'foo@bar.com', password: 'pass', password_confirmation: 'pass')
+      user = User.create(name: 'foo', email: 'f0oo@bar.com', password: 'pass', password_confirmation: 'pass')
       user.valid?
       expect(user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
     end
