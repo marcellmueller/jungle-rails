@@ -9,12 +9,10 @@ RSpec.describe Product, type: :model do
       @product = Product.new(name: 'bar', price_cents: 10, quantity: 10, category_id: @category.id)
     end
 
-    describe "name" do
       it "Should create new product" do
         expect(@product.valid?).to equal(true)
         @product.valid?
         expect(@product.errors.full_messages).to include()
-        
       end
 
       it "Should respond with error if name is null" do
@@ -44,6 +42,5 @@ RSpec.describe Product, type: :model do
       end
 
 
-    end
   end
 end
