@@ -18,14 +18,14 @@ RSpec.feature "Visitor navigates to Product Details", type: :feature, js: true d
     end
   end
 
-  scenario "They see all products" do
+  scenario "Add to cart" do
     # ACT
     visit root_path
     click_on("Add", match: :first)
 
     # VERIFY
     expect(page).to have_content "My Cart (1)"
-    save_screenshot
+    # save_screenshot
 
   end
 end
