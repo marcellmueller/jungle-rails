@@ -2,6 +2,10 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
+Added features including creating categories and sales. Fixed many bugs and learned the Rails workflow.
+
+![Screenshot 1](/media/screen1.png 'Screenshot 1')
+![Screenshot 2](/media/screen2.png 'Screenshot 2')
 
 ## Setup
 
@@ -22,6 +26,6 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 
 ## Dependencies
 
-* Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
-* PostgreSQL 9.x
-* Stripe
+- Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
+- PostgreSQL 9.x
+- Stripe
